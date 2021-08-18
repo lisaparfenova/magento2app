@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config>
+    <type name="\Magento\Catalog\Model\Product">
+      <plugin name="changePrice" type="Astrio\Module2\Plugin\ProductAttributesUpdater" sortOrder="1" disabled="false" />
+    </type>
+</config>
