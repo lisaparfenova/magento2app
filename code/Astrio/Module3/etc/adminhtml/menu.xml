@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+      <add id="Astrio_Module3::greetings" title="Module3" translate="title" module="Astrio_Module3" parent="Magento_Backend::content" sortOrder="50" dependsOnModule="Astrio_Module3" resource="Astrio_Module3::greetings"/>
+
+      <add id="Astrio_Module3::greetings_test" title="Test Admn Route" translate="title" module="Astrio_Module3" parent="Astrio_Module3::greetings" sortOrder="10" dependsOnModule="Astrio_Module3" action="routetest/test" resource="Astrio_Module3::greetings"/>
+    </menu>
+</config>
