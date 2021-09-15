@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<config>
+    <preference for="\Magento\Catalog\Block\Product\View\Description" type="Astrio\Catalog\Block\Product\View\Description" />
+</config>
