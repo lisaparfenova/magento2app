@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @var Astrio\Module5\Block\Index $block
+ */
+?>
+<h1>View questions</h1>
+<table>
+     <tr>
+          <th>question_id</th>
+          <th>name</th>
+          <th>content</th>
+          <th>creation_time</th>
+          <th>store_id</th>
+     </tr>
+     <?php
+          $collection = $block->getQuestionCollection();
+          foreach($collection as $item){
+     ?>
+     <tr>
+          <td><?php echo $item->getData('question_id'); ?></td>
+          <td><?php echo $item->getData('name'); ?></td>
+          <td><?php echo $item->getData('content'); ?></td>
+          <td><?php echo $item->getData('creation_time'); ?></td>
+          <td><?php echo $item->getData('store_id'); ?></td>
+     </tr>
+     <?php } ?>
+</table>
+<form action="<?= $block->getFormAction() ?>" >
+    <input type="submit" value="Add question">
+</form>
+
+
