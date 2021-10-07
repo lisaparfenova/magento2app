@@ -23,7 +23,7 @@
             <item name="js_config" xsi:type="array">
                 <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
                 <item name="submit_url" xsi:type="url" path="*/*/save"/>
-            </item>            
+            </item>
         </argument>
         <dataProvider class="Astrio\Module7\Model\DataProvider" name="edit_form_data_source">
             <settings>
@@ -32,10 +32,22 @@
             </settings>
         </dataProvider>
     </dataSource>
-    <fieldset name="main_fieldset">
-        <settings>
-            <label translate="true">Edit</label>
-        </settings>
+    <fieldset name="training_listing">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Edit</item>
+            </item>
+        </argument>
+        <field name="list_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">training_listing</item>
+                </item>
+            </argument>
+        </field>
         <field name="title">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -43,7 +55,7 @@
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">title</item>
+                    <item name="source" xsi:type="string">training_listing</item>
                 </item>
             </argument>
         </field>

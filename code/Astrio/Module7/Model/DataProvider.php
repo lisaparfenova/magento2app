@@ -3,16 +3,13 @@ namespace Astrio\Module7\Model;
 
 use	Astrio\Module7\Model\ResourceModel\Listing\CollectionFactory;
 
-use Magento\Ui\DataProvider\Modifier\ModifierInterface;
-//use Magento\Ui\DataProvider\Modifier\PoolInterface;
-
 class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
     /**
      * @param string $name
      * @param string $primaryFieldName
      * @param string $requestFieldName
-     * @param CollectionFactory $сollectionFactory
+     * @param CollectionFactory $collectionFactory
      * @param array $meta
      * @param array $data
      */
@@ -27,7 +24,6 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         $this->collection = $collectionFactory->create();
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
-
     /**
      * Get data
      *
@@ -35,12 +31,16 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      */
     public function getData()
     {
-        //if (!$this->getCollection()->isLoaded()) {
-            $this->getCollection()->load();
-       // }
-        $data2 = $this->getCollection()->toArray();
-        $this->data =$data2['items'];
-
-        return $this->data;
+        if (isset($this->loadedData)) {
+            return $this->loadedData;
+        }
+        $items = $this->collection->getItems();
+        $this->loadedData = array();
+        foreach ($items as $contact) {
+            //$this->loadedData[$contact->getId()]['training_listing'] = $contact->getData();
+            $this->loadedData[$contact->getId()] = $contact->getData();
+        }
+        return $this->loadedData;
     }
 }
+

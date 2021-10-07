@@ -4,7 +4,7 @@ namespace Astrio\Module7\Model\ResourceModel\Listing;
 
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
-    protected $_idFieldName = 'listing_id';
+    protected $_idFieldName = 'list_id';
     protected $_eventPrefix = 'astrio_module7_listing_collection';
     protected $_eventObject = 'listing_collection';
 

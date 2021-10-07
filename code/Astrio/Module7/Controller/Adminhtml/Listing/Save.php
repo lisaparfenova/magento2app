@@ -10,14 +10,10 @@ class Save extends \Magento\Backend\App\Action implements HttpPostActionInterfac
 
     public function execute()
     {
-        $data = $this->getRequest()->getParam('id');
-        $data3 = $this->getRequest()->getParam('list_id');
-        $data2 = $this->getRequest()->getPostValue();
-
-        //$model = $this->_objectManager->create('Astrio\Module7\Model\Listing');
-        //$model->setData('title', $data['title']);
-        //$model->save();
-
+        $data = $this->getRequest()->getPostValue();
+        $model = $this->_objectManager->create('Astrio\Module7\Model\Listing');
+        $model->setData($data);
+        $model->save();
         return $this->resultRedirectFactory->create()->setPath('module7/listing/index');
     }
 }
