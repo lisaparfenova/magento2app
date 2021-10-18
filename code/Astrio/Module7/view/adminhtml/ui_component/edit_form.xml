@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">edit_form.edit_form_data_source</item>
+        </item>
+         <item name="label" xsi:type="string" translate="true">Information</item>
+         <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save" class="Astrio\Module7\Block\Adminhtml\Edit\SaveButton"/>
+            <button name="back" class="Astrio\Module7\Block\Adminhtml\Edit\BackButton"/>
+        </buttons>
+        <namespace>edit_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>edit_form.edit_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="edit_form_data_source">
+    	<argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+                <item name="submit_url" xsi:type="url" path="*/*/save"/>
+            </item>
+        </argument>
+        <dataProvider class="Astrio\Module7\Model\DataProvider" name="edit_form_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>list_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="training_listing">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Edit</item>
+            </item>
+        </argument>
+        <field name="list_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">training_listing</item>
+                </item>
+            </argument>
+        </field>
+        <field name="title">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Title</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">training_listing</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

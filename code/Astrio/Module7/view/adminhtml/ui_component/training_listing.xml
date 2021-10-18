@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">training_listing.training_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add New</label>
+            </button>
+        </buttons>
+        <spinner>training_listing_columns</spinner>
+        <deps>
+            <dep>training_listing.training_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="training_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">list_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="training_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>list_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <columns name = "training_listing_columns">
+        <column name="list_id" sortOrder="20">
+            <settings>
+                <filter>text</filter>
+                <sortable>true</sortable>
+                <label translate="true">List ID</label>
+            </settings>
+        </column>
+        <column name="title" sortOrder="30">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Title</label>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Astrio\Module7\Ui\Component\Listing\Columns\TestAction" sortOrder="200">
+            <settings>
+                <indexField>list_id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>
