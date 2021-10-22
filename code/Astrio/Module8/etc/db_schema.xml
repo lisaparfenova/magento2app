@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="category_countriess" resource="default" engine="innodb" comment="Category Countries">
+        <column xsi:type="smallint" name="category_country_id" padding="6" unsigned="false" nullable="false" identity="true" comment="Category country ID"/>
+        <column xsi:type="int" name="category_id" padding="10" unsigned="true" nullable="false" comment="Category ID"/>
+        <column xsi:type="varchar" name="country_id" length="2" nullable="false" comment="Country ID"/>
+        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="category_country_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="CATEGORY_COUNTRIES_COUNTRY_ID_DIRECTORY_COUNTRY_COUNTRY_ID" table="category_countries" column="country_id" referenceTable="directory_country" referenceColumn="country_id" onDelete="CASCADE"/>        
+        <constraint xsi:type="foreign" referenceId="CATEGORY_COUNTRIESS_CATEGORY_ID_CATALOG_CATEGORY_ENTITY_ENTITY_ID" table="category_countriess" column="category_id" referenceTable="catalog_category_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+</schema>
