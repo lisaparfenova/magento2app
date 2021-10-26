@@ -4,31 +4,33 @@ namespace Astrio\Module8\Plugin;
 
 use Magento\Catalog\Api\CategoryRepositoryInterface as MagentoRepositoryInterface;
 use Magento\Catalog\Api\Data\CategoryInterface;
-use Magento\Catalog\Model\ResourceModel\Category\CollectionFactory;
+use Astrio\Module8\Api\CountriesHelpInterface;
 
 class CategoryRepositoryInterface
 {
-	private $collectionFactory;
-
-	public function __construct(CollectionFactory $collectionFactory) {
-		$this->collectionFactory = $collectionFactory;
+	/**
+     * @var \Astrio\Module8\Api\CountriesHelpInterface
+     */
+	private $countriesHelp;
+	
+	/**
+     * @param \Astrio\Module8\Api\CountriesHelpInterface $countriesHelp
+     */
+	public function __construct(
+		CountriesHelpInterface $countriesHelp
+	) {
+		$this->countriesHelp = $countriesHelp;
 	}
 
-    public function afterGet(MagentoRepositoryInterface $subject, CategoryInterface $category)
-	{
+    public function afterGet(MagentoRepositoryInterface $subject, CategoryInterface $category): CategoryInterface
+    {
 		if($category->getExtensionAttributes() && $category->getExtensionAttributes()->getCountries())
 		{
 			return $category;
 		}
-		$countries = $this->getCountries($category->getId());
+		$countries = $this->countriesHelp->getByCategoryId($category->getId());
 		$extensionAttributes = $category->getExtensionAttributes()->setCountries($countries);
 		$category->setExtensionAttributes($extensionAttributes);
     	return $category;
-	}
-
-	public function getCountries($categoryId){
-		return $this->collectionFactory->create()
-            ->addFieldToFilter('entity_id', ['eq' => $categoryId])
-            ->getFirstItem()->getData('countries');
 	}
 }
