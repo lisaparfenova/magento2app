@@ -21,6 +21,7 @@ $params =[
     'search_criteria[filter_groups][0][filters][0][field]' => 'email',
     'search_criteria[filter_groups][0][filters][0][value]' => 'test%',
     'search_criteria[filter_groups][0][filters][0][condition_type]' => 'like',
+    'search_criteria[sortOrders][0][field]' => 'email',
 ];
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url.'?'.http_build_query($params));
@@ -35,7 +36,7 @@ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Authorization: Bearer " . json_decode($token)));
 $result = curl_exec($ch);
-echo $result;
+//echo $result;
 
 $ch = curl_init("http://magento2.local/rest/V1/module7/listing/2");
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
