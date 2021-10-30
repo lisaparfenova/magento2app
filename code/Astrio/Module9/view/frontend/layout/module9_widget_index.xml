@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+   <body>
+       <referenceContainer name="content">
+           <block name="module9.first" class="Magento\Framework\View\Element\Template" template="Astrio_Module9::first.phtml" />
+           <block name="module9.four" class="Astrio\Module9\Block\Test" template="Astrio_Module9::four.phtml" />
+           <block name="module9.fifth" class="Magento\Framework\View\Element\Template" template="Astrio_Module9::fifth.phtml" />
+        </referenceContainer>
+    </body>
+</page>

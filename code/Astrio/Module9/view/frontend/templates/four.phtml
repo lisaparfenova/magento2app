@@ -1,0 +1,19 @@
+<div class="evens-four">
+   <button id="click-me" type="button">Four</button>
+</div>
+
+<script>
+    require(
+        [
+            'jquery'
+        ],
+        function(
+            $,
+            modal
+        ) {
+            $("#click-me").on('click',function(){
+                console.log("Click!");
+            });
+        }
+    );
+</script>
