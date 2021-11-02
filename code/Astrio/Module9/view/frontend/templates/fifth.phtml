@@ -1,0 +1,21 @@
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "example": {
+                    "component": "Astrio_Module9/js/fifth",
+                    "config": {
+                        "template": "Astrio_Module9/fifth",
+                        "url": "/module9/ajax/customer"
+                    }
+                }
+            }
+        }
+    }
+}
+</script>
+
+<div data-bind="scope: 'example'">    
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
