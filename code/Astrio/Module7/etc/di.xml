@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Astrio\Module7\Api\Data\ListingInterface"
+                type="Astrio\Module7\Model\Listing"/>
+
+    <preference for="Astrio\Module7\Api\ListingRepositoryInterface"
+                type="Astrio\Module7\Model\ListingRepository"/>
+
+    <preference for="Astrio\Module7\Api\Data\ListingSearchResultInterface"
+                type="Magento\Framework\Api\SearchResults" />
+
+</config>

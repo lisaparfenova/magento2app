@@ -2,7 +2,9 @@
 
 namespace Astrio\Module7\Model;
 
-class Listing extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\DataObject\IdentityInterface
+use Astrio\Module7\Api\Data\ListingInterface;
+
+class Listing extends \Magento\Framework\Model\AbstractModel implements ListingInterface
 {
 	const CACHE_TAG = 'astrio_module7_listing';
 	protected $_cacheTag = 'astrio_module7_listing';
@@ -23,14 +25,39 @@ class Listing extends \Magento\Framework\Model\AbstractModel implements \Magento
 		$this->_init('Astrio\Module7\Model\ResourceModel\Listing');
 	}
 
-	public function getIdentities()
-	{
-		return [self::CACHE_TAG . '_' . $this->getId()];
-	}
+    /**
+     * @return int
+     */
+    public function getListId()
+    {
+        return $this->getData(ListingInterface::LIST_ID);
+    }
 
-	public function getDefaultValues()
-	{
-		$values = [];
-		return $values;
-	}
+    /**
+     * @param int $list_id
+     * @return $this
+     */
+    public function setListId($list_id)
+    {
+        $this->setData(ListingInterface::LIST_ID, $list_id);
+        return $this;
+    }
+
+	/**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->getData(ListingInterface::TITLE);
+    }
+
+    /**
+     * @param string $title
+     * @return $this
+     */
+    public function setTitle(string $title)
+    {
+        $this->setData(ListingInterface::TITLE, $title);
+        return $this;
+    }
 }
