@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * @var Astrio\Module5\Block\Form $block
+ */
+?>
+<h1>Send a question</h1>
+
+<form action="<?= $block->getFormAction() ?>" method="post">
+    <input name="content" type="text" value="<?= $block->escapeHtmlAttr($this->helper(\ Astrio\Module5\Helper\Data::class)->getPostValue('content')) ?>" data-validate="{required:true}" >
+    <input type="submit" value="Send">
+</form>
